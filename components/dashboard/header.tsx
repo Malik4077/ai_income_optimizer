@@ -1,12 +1,13 @@
 "use client";
 
 import { UserButton } from "@clerk/nextjs";
-import type { User } from "@clerk/nextjs/server";
 import { Bell } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 interface DashboardHeaderProps {
-  user: User | null;
+  user: {
+    firstName?: string | null;
+  } | null;
 }
 
 export function DashboardHeader({ user }: DashboardHeaderProps) {
@@ -14,7 +15,10 @@ export function DashboardHeader({ user }: DashboardHeaderProps) {
     <header className="h-16 border-b bg-card flex items-center justify-between px-6">
       <div>
         <p className="text-sm text-muted-foreground">
-          Welcome back, <span className="font-medium text-foreground">{user?.firstName ?? "there"}</span>
+          Welcome back,{" "}
+          <span className="font-medium text-foreground">
+            {user?.firstName ?? "there"}
+          </span>
         </p>
       </div>
       <div className="flex items-center gap-3">
