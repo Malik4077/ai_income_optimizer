@@ -18,5 +18,4 @@ export async function POST(req: NextRequest) {
   }
 }
 
-// Stripe requires raw body
-export const config = { api: { bodyParser: false } };
+// Raw body is handled automatically in Next.js App Router
